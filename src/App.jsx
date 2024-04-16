@@ -1,11 +1,12 @@
-import Student from "./Student/Student"
+import UserGreeting from "./UserGreeting"
 
+//npm run dev start test
 function App() {
     return(
       <>
-        <Student name="Spongebob" age={30} isStudent={false}/>
-        <Student name="Spongebob" age={42} isStudent={true}/>
-        <Student/>
+        <UserGreeting isLoggedIn={true} username="Luqc"/>
+        <UserGreeting isLoggedIn={false} username="Pengman"/>
+        <UserGreeting/>
       </>
     )
 }
