@@ -6,7 +6,8 @@ function List(){
     ];
     //fruits.sort((a,b)=> a.name.localeCompare(b.name));
     fruits.sort((b,a)=> a.name.localeCompare(b.name));
-    const listItems = fruits.map(fruit => <li key={fruit.id}>{fruit.name}:&nbsp;<b>{fruit.calories}</b></li>);
+    const filterFruits = fruits.filter(a=>a.calories>20);
+    const listItems = filterFruits.map(fruit => <li key={fruit.id}>{fruit.name}:&nbsp;<b>{fruit.calories}</b></li>);
 
     //return <ul>{listItems}</ul>
     return <ol>{listItems}</ol>
