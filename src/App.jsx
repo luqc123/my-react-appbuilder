@@ -1,14 +1,12 @@
-import UserGreeting from "./UserGreeting"
+import List from "./List"
 
 //npm run dev start test
 function App() {
     return(
       <>
-        <UserGreeting isLoggedIn={true} username="Luqc"/>
-        <UserGreeting isLoggedIn={false} username="Pengman"/>
-        <UserGreeting/>
+        <List/>
       </>
-    )
+    );
 }
 
 export default App
