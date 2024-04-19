@@ -1,20 +1,24 @@
 import React from "react";
 import LoginForm from "./LoginForm.jsx";
-import { Select } from "antd";
+import { Form, Input, Button, } from "antd";
 
-const { Option } = Select;
+const ItemCol = {
+  lableCol: {span:7},
+  wrapperCol: {span:14},
+}
 
 //npm run dev start test
 function App() {
     return(
       <>
-      <Select defaultValue="lucy" style={{ width: 120 }}>
-        <Option value="jack">Jack</Option>
-        <Option value="lucy">Lucy</Option>
-        <Option value="disabled" disabled>
-        </Option>
-        <Option value="Yiminghe">yiminghe</Option>
-      </Select>
+        <Form>
+          <Form.Item {...ItemCol} label="Username">
+            <Input/>
+          </Form.Item>
+          <Form.Item labelCol={{span:6}} wrapperCol={{span:6}} label="Password">
+            <Input.Password/>
+          </Form.Item>
+        </Form>
       </>
     );
 }
