@@ -1,8 +1,13 @@
 import { Form, Input, Button, } from "antd";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 const LoginForm = ()=>{
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
   const onFinish = (values) => {
-    console.log("Success:", values);
+    dispatch({type:'LOGIN',username:values.username});
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);

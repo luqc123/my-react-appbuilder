@@ -1,24 +1,15 @@
 import React from "react";
+import { Provider } from "react-redux";
+import store from "./store.js";
 import LoginForm from "./LoginForm.jsx";
-import { Form, Input, Button, } from "antd";
-
-const ItemCol = {
-  lableCol: {span:7},
-  wrapperCol: {span:14},
-}
 
 //npm run dev start test
 function App() {
     return(
       <>
-        <Form>
-          <Form.Item {...ItemCol} label="Username">
-            <Input/>
-          </Form.Item>
-          <Form.Item labelCol={{span:6}} wrapperCol={{span:6}} label="Password">
-            <Input.Password/>
-          </Form.Item>
-        </Form>
+        <Provider store={store}>
+          <LoginForm/>
+        </Provider>
       </>
     );
 }
