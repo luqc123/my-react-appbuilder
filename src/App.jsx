@@ -1,15 +1,32 @@
 import React from "react";
-import { Provider } from "react-redux";
-import store from "./store.js";
-import LoginForm from "./LoginForm.jsx";
+import { useCounter } from 'ahooks';
+import { Observable } from 'rxjs';
+
+function rxtest() {
+  const observable = new Observable(subscriber => {
+    subscriber.next(1);
+    subscriber.next(2);
+    subscriber.next(3);
+    setTimeout(() => {
+      subscriber.next(4);
+      subscriber.complete();
+    }, 4000);
+  });
+
+  console.log('just before subscribe');
+  observable.subscribe({
+    next(x) { console.log('got value ' + x); },
+    error(err) { console.error('something wrong occurred: ' + err); },
+    complete() { console.log('done'); }
+  });
+  console.log('just after subscribe');
+}
 
 //npm run dev start test
 function App() {
     return(
       <>
-        <Provider store={store}>
-          <LoginForm/>
-        </Provider>
+        <button onClick={rxtest}>Click me</button>
       </>
     );
 }
