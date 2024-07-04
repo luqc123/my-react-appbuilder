@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 function rxtest() {
   const observable = new Observable(subscriber => {
@@ -29,11 +29,29 @@ function rxtest() {
   console.log('just after useSubscription');
 }
 
+function rxtest2(){
+  const subject = new BehaviorSubject(0); // 0 is the initial value
+
+  subject.subscribe({
+    next: (v) => console.log(`observerA: ${v}`)
+  });
+
+  subject.next(1);
+  subject.next(2);
+
+  subject.subscribe({
+    next: (v) => console.log(`observerB: ${v}`)
+  });
+
+  subject.next(3);
+}
+
 //npm run dev start test
 function App() {
     return(
       <>
-        <button onClick={rxtest}>Click me</button>
+        <button onClick={rxtest}>test</button>
+        <button onClick={rxtest2}>test2</button>
       </>
     );
 }
